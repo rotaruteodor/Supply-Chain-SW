@@ -6,25 +6,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "order_items")
-public class OrderItem {
+@Table(name = "bank_accounts")
+public class BankAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(targetEntity = Product.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @ManyToOne(targetEntity = Bank.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "bank_id")
+    private Bank bank;
 
-    @Column(name = "quantity")
-    private BigDecimal quantity;
+    @Column(name = "IBAN")
+    private String IBAN;
+
 
 }

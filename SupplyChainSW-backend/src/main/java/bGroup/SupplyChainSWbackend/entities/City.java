@@ -1,5 +1,6 @@
 package bGroup.SupplyChainSWbackend.entities;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,18 +14,25 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "order_items")
-public class OrderItem {
+@Table(name = "cities")
+public class City {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(targetEntity = Product.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id")
-    private Product product;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "quantity")
-    private BigDecimal quantity;
+    @Column(name = "latitude")
+    private BigDecimal latitude;
+
+    @Column(name = "longitude")
+    private BigDecimal longitude;
+
+    @ManyToOne(targetEntity = Country.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "country_id")
+    private Country country;
+
 
 }
