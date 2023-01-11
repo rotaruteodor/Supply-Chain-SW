@@ -38,7 +38,4 @@ public class Employee {
     @ManyToOne(targetEntity = JobTitle.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "job_title_id")
     private JobTitle jobTitle;
-
-
-
 }
